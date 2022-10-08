@@ -1,0 +1,93 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://becked.gd" type="Script" id=1]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 5.0
+margin_bottom = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BeckedMenu" type="MenuButton" parent="HBoxContainer"]
+margin_right = 59.0
+margin_bottom = 20.0
+text = "Becked"
+flat = false
+items = [ "Settings", null, 0, false, false, 0, 0, null, "", false, "About becked", null, 0, false, false, 1, 0, null, "", false, "Quit", null, 0, false, false, 2, 0, null, "", false ]
+switch_on_hover = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BufferMenu" type="MenuButton" parent="HBoxContainer"]
+margin_left = 63.0
+margin_right = 113.0
+margin_bottom = 20.0
+text = "Buffer"
+flat = false
+items = [ "New", null, 0, false, false, 0, 0, null, "", false, "Load", null, 0, false, false, 1, 0, null, "", false, "Save", null, 0, false, false, 2, 0, null, "", false ]
+switch_on_hover = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextEdit" type="TextEdit" parent="."]
+anchor_top = 0.04
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -1.90735e-06
+highlight_current_line = true
+show_line_numbers = true
+smooth_scrolling = true
+minimap_draw = true
+minimap_width = 60
+caret_blink = true
+
+[node name="LoadDialog" type="FileDialog" parent="."]
+anchor_left = 0.2
+anchor_top = 0.2
+anchor_right = 0.8
+anchor_bottom = 0.8
+margin_left = -4.79999
+margin_top = -20.0
+margin_right = -19.2
+margin_bottom = -80.0
+window_title = "Open a File"
+resizable = true
+mode = 0
+current_file = "becked.tscn"
+current_path = "res://becked.tscn"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveDialog" type="FileDialog" parent="."]
+anchor_left = 0.2
+anchor_top = 0.2
+anchor_right = 0.8
+anchor_bottom = 0.8
+margin_left = -4.0
+margin_top = -19.0
+margin_right = -19.0
+margin_bottom = -80.0
+window_title = "Save"
+resizable = true
+current_file = "becked.tscn"
+current_path = "res://becked.tscn"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="file_selected" from="LoadDialog" to="." method="_on_LoadDialog_file_selected"]
+[connection signal="file_selected" from="SaveDialog" to="." method="_on_SaveDialog_file_selected"]
